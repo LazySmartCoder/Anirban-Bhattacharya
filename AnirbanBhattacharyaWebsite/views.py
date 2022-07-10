@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Backend of Anirban Bhattacharya Portfolio website by AniWeb.
+def index(request):
+    return render(request, "index.html")
