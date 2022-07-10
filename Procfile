@@ -1,1 +1,1 @@
-web: waitress-serve --port=8000 AnirbanBhattacharya.wsgi:application
+web: waitress-serve --port=$PORT AnirbanBhattacharya.wsgi:application
