@@ -103,23 +103,23 @@
       <div class="modal-body">
         <form action="/register" method="post">
           <div class="form-floating mb-3">
-            <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name...">
+            <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name..." required>
             <label for="floatingInput">Name...</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email address...">
+            <input type="email" name="email" class="form-control" id="floatingInput" required placeholder="Email address...">
             <label for="floatingInput">Email address...</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" name="phone" class="form-control" id="floatingInput" placeholder="Phone....">
-            <label for="floatingInput">Phone....</label>
+            <input type="number" name="phone" class="form-control" id="floatingInput" placeholder="Phone.... (Optional)">
+            <label for="floatingInput">Phone.... (Optional)</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" name="pass1" class="form-control" id="floatingInput" placeholder="Create Password...">
+            <input type="password" name="pass1" class="form-control" id="floatingInput" required placeholder="Create Password...">
             <label for="floatingInput">Create Password...</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" name="pass2" class="form-control" id="floatingInput" placeholder="Retype the Password...">
+            <input type="password" name="pass2" class="form-control" id="floatingInput" required placeholder="Retype the Password...">
             <label for="floatingInput">Retype the Password...</label>
           </div>
           <center>
@@ -129,6 +129,7 @@
           <center>
             <button type="button" data-bs-toggle="modal" data-bs-target="#login" class="btn btn-outline-link">Already have an account? Login</button>
           </center>
+          {% csrf_token %}
         </form>
       </div>
     </div>
@@ -146,11 +147,11 @@
       <div class="modal-body">
         <form action="/login" method="post">
           <div class="form-floating mb-3">
-            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email Address...">
+            <input type="email" required name="email" class="form-control" id="floatingInput" placeholder="Email Address...">
             <label for="floatingInput">Email Address...</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" name="password" class="form-control" id="floatingInput" placeholder="Password...">
+            <input type="password" required name="password" class="form-control" id="floatingInput" placeholder="Password...">
             <label for="floatingInput">Password...</label>
           </div>
           <center>
@@ -162,6 +163,7 @@
             <br>
             <button type="button" data-bs-toggle="modal" data-bs-target="#forgotpassword" class="btn btn-outline-link">Forgot Pasword?</button>
           </center>
+          {% csrf_token %}
         </form>
       </div>
     </div>
@@ -179,12 +181,13 @@
       <div class="modal-body">
         <form action="/forgotpassword" method="post">
           <div class="form-floating mb-3">
-            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email Address...">
+            <input type="email" required name="email" class="form-control" id="floatingInput" placeholder="Email Address...">
             <label for="floatingInput">Email Address...</label>
           </div>
           <center>
             <button class="btn btn-outline-success" type="submit">Send OTP</button>
           </center>
+          {% csrf_token %}
         </form>
       </div>
     </div>
