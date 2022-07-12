@@ -43,6 +43,8 @@ def ContactMe(request):
 
 def ReadBlogs(request, blogslug):
     blogs = Blog.objects.get(Slug = blogslug)
+    blogs.Views = str(int(blogs.Views) + 1)
+    blogs.save()
     param = {
         "name" : blogs.Name,
         "author" : blogs.Author,
@@ -58,7 +60,15 @@ def ReadBlogs(request, blogslug):
     return render(request, "read blogs.html", param)
 
 def LikeBlog(request, likeblog): 
+    blog = Blog.objects.get(Slug = likeblog)
     ip = socket.gethostbyname(socket.gethostname())
-    
+    if IP.objects.filter(IP = ip).exists():
+        messages.warning(request, "You already liked the blog post.")
+        return redirect(f"/read-blog/{likeblog}")
+    addingIp = IP(IP = str(ip))
+    addingIp.save()
+    blog.Likes = str(int(blog.Likes) + 1)
+    blog.save()
+    messages.success(request, "Thank you for liking this blog post.")
     return redirect(f"/read-blog/{likeblog}")
 

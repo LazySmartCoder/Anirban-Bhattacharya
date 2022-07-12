@@ -17,7 +17,7 @@ class Blog(models.Model):
         ("Business", "Business"),
         ("Stock Market", "Stock Market"),
     )
-    Name = models.CharField(max_length=20, default="")
+    Name = models.CharField(max_length=200, default="")
     Description = models.CharField(max_length=2000, default="")
     DateAdded = models.CharField(max_length=20, default="")
     Image = models.CharField(max_length=300, default="")
@@ -25,10 +25,14 @@ class Blog(models.Model):
     Category = models.CharField(max_length=60, choices=cat)
     Post = models.TextField(max_length=10000, default="")
     Author = models.CharField(max_length=90, default="")
-    Views = models.CharField(max_length=400, default="")
-    Likes = models.ManyToManyField(User, related_name="UserLikes", blank=False)
+    Views = models.CharField(max_length=400, default="0")
+    Likes = models.CharField(max_length=10, default="0")
 
     def __str__(self) -> str:
         return self.Name
 
-
+class IP(models.Model):
+    IP = models.CharField(max_length=50, default="")
+    
+    def __str__(self) -> str:
+        return self.IP

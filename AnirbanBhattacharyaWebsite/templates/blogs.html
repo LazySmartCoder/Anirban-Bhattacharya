@@ -23,10 +23,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Grid -->
 <div class="w3-row">
 
-{% for blog in blogs %}
+{% for blog in blogs|slice:"::-1" %}
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-    <img src="{{blog.Image}}" alt="Norway" style="width:100%">
+    <img style="height: 400px; width: 100%;" src="{{blog.Image}}" alt="Norway" style="width:100%">
       <div class="w3-container">
         <br>
         <h3><b>{{blog.Name}}</b></h3>
@@ -35,12 +35,10 @@ and is wrapped around the whole page content, except for the footer in this exam
       <div class="w3-container">
         <p>{{blog.Description}}</p>
         <div class="w3-row">
-          <div class="w3-col m8 s12">
-            <a href="/read-blog/{{blog.Slug}}"><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></a>
-          </div>
-          <div class="w3-col m4 w3-hide-small">
-            <p><span class="w3-padding-large w3-right"><b><i class="fa fa-eye"></i>  </b> <span class="w3-badge">{{blog.Views}}</span></span></p>
-          </div>
+          <div class="w3-col m15 s12">
+            <a style="float: left;" href="/read-blog/{{blog.Slug}}"><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></a>
+            <p style="text-align: right;"><span class="w3-padding-large w3-right"><b><i class="fa fa-eye"></i>  </b> <span class="w3-badge">{{blog.Views}}</span></span></p>
+        </div>
         </div>
         <br>
       </div>
