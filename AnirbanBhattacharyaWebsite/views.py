@@ -17,7 +17,7 @@ def sendEmail(name, email, subject, message):
     send.quit()
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "index.html", {"blogs" : Blog.objects.all()})
 
 def Blogs(request):
     blogs = Blog.objects.all()

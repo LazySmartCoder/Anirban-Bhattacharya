@@ -7,7 +7,7 @@
 
 <section id="testmonial" class="portfolio section-bg">
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px">
-        <h5 style="text-align: center;">Last Updated: {{date}} | <i class="fa fa-eye"></i>: {{views}} | Category: Python</h5>
+        <h5 style="text-align: center;">Last Updated: {{date}} | <i class="fa fa-eye"></i> {{views}} | Category: Python | Author: {{author}}</h5>
         <hr>
         <img style="max-width: 100%;" src="{{image}}" alt="">
         <h1></h1>
@@ -15,9 +15,6 @@
         <h1></h1>
         <h1 style="text-align: center;">{{name}}</h1>
         {{post|safe}}
-        <br>
-        <br>
-        <h3 style="text-align: right; font-style: italic;"> ~ {{author}}</h3>
 
         <a href="/like-blog/{{slug}}"><button class="btn btn-outline-info"><i class="fa fa-thumbs-up"></i> Like ({{likes}})</button></a>
     </div>
