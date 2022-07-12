@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="{% static 'Styles/assets/vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'Styles/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'Styles/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
@@ -41,7 +42,7 @@
   <header id="header" class="d-flex flex-column justify-content-center">
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li><a href="/#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="/#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About me</span></a></li>
         <li><a href="/#skills" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>My Skills</span></a></li>
         <li><a href="/#achievements" class="nav-link scrollto"><i class="bx bx-trophy"></i> <span>My Achievements</span></a></li>
@@ -49,7 +50,6 @@
         <li><a href="/blogs" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>My Blogs</span></a></li>
         <li><a href="/gallery" class="nav-link scrollto"><i class="bx bx-image"></i> <span>Photos</span></a></li>
         <li><a href="/#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        <li><a type="button" data-bs-toggle="modal" data-bs-target="#login" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Login / Register</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
 
@@ -70,7 +70,7 @@
         <a href="https://t.me/AnirbanBhattacharyaOfficial"><i class="bx bxl-facebook"></i></a>
       </div>
       <div class="credits">
-        Powered by <a href="/">Anirban Bhattacharya</a>
+        Powered by <a href="http://aniweb.ml">AniWeb</a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -92,104 +92,3 @@
 </body>
 
 </html>
-
-<div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="/register" method="post">
-          <div class="form-floating mb-3">
-            <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name..." required>
-            <label for="floatingInput">Name...</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="email" name="email" class="form-control" id="floatingInput" required placeholder="Email address...">
-            <label for="floatingInput">Email address...</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="number" name="phone" class="form-control" id="floatingInput" placeholder="Phone.... (Optional)">
-            <label for="floatingInput">Phone.... (Optional)</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" name="pass1" class="form-control" id="floatingInput" required placeholder="Create Password...">
-            <label for="floatingInput">Create Password...</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" name="pass2" class="form-control" id="floatingInput" required placeholder="Retype the Password...">
-            <label for="floatingInput">Retype the Password...</label>
-          </div>
-          <center>
-            <button type="submit" class="btn btn-outline-info">Register</button> 
-          </center>
-          <br>
-          <center>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#login" class="btn btn-outline-link">Already have an account? Login</button>
-          </center>
-          {% csrf_token %}
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="/login" method="post">
-          <div class="form-floating mb-3">
-            <input type="email" required name="email" class="form-control" id="floatingInput" placeholder="Email Address...">
-            <label for="floatingInput">Email Address...</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" required name="password" class="form-control" id="floatingInput" placeholder="Password...">
-            <label for="floatingInput">Password...</label>
-          </div>
-          <center>
-            <button type="submit" class="btn btn-outline-info">Login</button> 
-          </center>
-          <br>
-          <center>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#register" class="btn btn-outline-link">Don't have an account? Create Now</button>
-            <br>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#forgotpassword" class="btn btn-outline-link">Forgot Pasword?</button>
-          </center>
-          {% csrf_token %}
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="forgotpassword" tabindex="-1" aria-labelledby="forgotpassword" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="/forgotpassword" method="post">
-          <div class="form-floating mb-3">
-            <input type="email" required name="email" class="form-control" id="floatingInput" placeholder="Email Address...">
-            <label for="floatingInput">Email Address...</label>
-          </div>
-          <center>
-            <button class="btn btn-outline-success" type="submit">Send OTP</button>
-          </center>
-          {% csrf_token %}
-        </form>
-      </div>
-    </div>
-  </div>
-</div>

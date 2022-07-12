@@ -4,14 +4,17 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 import random
-
-def otpGen():
-    otp = ""
-    for i in range(4):
-        otp += str(random.randint(1, 9))
-    return otp
+import smtplib
 
 # Backend of Anirban Bhattacharya Portfolio website by AniWeb.
+
+def sendEmail(name, email, subject, message):
+    send = smtplib.SMTP("smtp.gmail.com", port=587)
+    send.starttls()
+    send.login("anirbanbhattacharya.me@gmail.com", "hsdcbgfuuglkeelt")
+    send.sendmail("anirbanbhattacharya.me@gmail.com", email, f"Subject: {subject}\n" + f"Hello {name}\n,{message}")
+    send.quit()
+
 def index(request):
     return render(request, "index.html")
 
@@ -36,23 +39,3 @@ def ContactMe(request):
         return redirect("HomePage")
     return redirect("ErrorPage")
 
-def Registration(request):
-    if request.method == "POST":
-        name = request.POST["name"]
-        email = request.POST["email"]
-        phone = request.POST["phone"]
-        pass1 = request.POST["pass1"]
-        pass2 = request.POST["pass2"]
-        creatingUser = User.objects.create_user(email, name, pass1)
-        creatingUser.first_name = otpGen()
-        creatingUser.last_name = phone
-        creatingUser.save()
-        messages.success(request, "Thank you for registering.")
-        return redirect("HomePage")
-    return redirect("ErrorPage")
-
-def Login(request):
-    pass
-
-def ForgotPassword(request):
-    pass

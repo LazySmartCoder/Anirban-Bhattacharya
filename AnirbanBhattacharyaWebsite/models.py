@@ -10,4 +10,23 @@ class Contact(models.Model):
     def __str__(self) -> str:
         return self.Message
 
-        
+class Blog(models.Model):
+    cat = (
+        ("Coding", "Coding"),
+        ("Python", "Python"),
+        ("Business", "Business"),
+        ("Stock Market", "Stock Market"),
+    )
+    Name = models.CharField(max_length=20, default="")
+    Description = models.CharField(max_length=200, default="")
+    DateAdded = models.CharField(max_length=20, default="")
+    Image = models.CharField(max_length=300, default="")
+    Slug = models.CharField(max_length=300, default="")
+    Category = models.CharField(max_length=60, choices=cat)
+    Post = models.TextField(max_length=10000, default="")
+    Author = models.CharField(max_length=90, default="")
+    Views = models.CharField(max_length=400, default="")
+    Likes = models.CharField(max_length=400, default="")
+
+
+
