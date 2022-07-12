@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Database models of Anirban Bhattacharya.
 class Contact(models.Model):
     Name = models.CharField(max_length=40, blank=False, default="")
