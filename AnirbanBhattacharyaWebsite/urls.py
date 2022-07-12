@@ -7,5 +7,7 @@ urlpatterns = [
     path("gallery", Gallery, name = "Gallery"),
     path("contact", ContactMe, name = "ContactMe"),
     path("error", ErrorPage, name = "ErrorPage"),
+    path("read-blog/<str:blogslug>", ReadBlogs, name = "ReadBlogs"),
+    path("like-blog/<str:likeblog>", LikeBlog, name = "LikeBlog"),
 ]
 

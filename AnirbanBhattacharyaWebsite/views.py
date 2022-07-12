@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 import random
 import smtplib
+import socket
 
 # Backend of Anirban Bhattacharya Portfolio website by AniWeb.
 
@@ -19,7 +20,8 @@ def index(request):
     return render(request, "index.html")
 
 def Blogs(request):
-    return render(request, "blogs.html")
+    blogs = Blog.objects.all()
+    return render(request, "blogs.html", {"blogs" : blogs})
 
 def Gallery(request):
     return render(request, "gallery.html")
@@ -38,4 +40,25 @@ def ContactMe(request):
         messages.success(request, "Thank you for contacting me. I will surely try to reply to you as soon as possible.")
         return redirect("HomePage")
     return redirect("ErrorPage")
+
+def ReadBlogs(request, blogslug):
+    blogs = Blog.objects.get(Slug = blogslug)
+    param = {
+        "name" : blogs.Name,
+        "author" : blogs.Author,
+        "date" : blogs.DateAdded,
+        "views" : blogs.Views,
+        "image" : blogs.Image,
+        "desc" : blogs.Description,
+        "post" : blogs.Post, 
+        "cat" : blogs.Category,
+        "likes" : blogs.Likes,
+        "slug" : blogs.Slug,
+    }
+    return render(request, "read blogs.html", param)
+
+def LikeBlog(request, likeblog): 
+    ip = socket.gethostbyname(socket.gethostname())
+    
+    return redirect(f"/read-blog/{likeblog}")
 
