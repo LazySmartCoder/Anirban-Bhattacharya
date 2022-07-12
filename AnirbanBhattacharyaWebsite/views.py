@@ -26,8 +26,13 @@ def Blogs(request):
 def Gallery(request):
     return render(request, "gallery.html")
 
-def ErrorPage(request):
-    return render(request, "error occured.html")
+def ErrorPage(request, exception):
+    # This is for handler 404
+    return render(request, "error page.html")
+
+def ErrorOccured(request):
+    # This is for handler 500
+    return render(request, "error page.html")
 
 def ContactMe(request):
     if request.method == "POST":
