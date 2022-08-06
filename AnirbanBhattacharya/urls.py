@@ -18,9 +18,12 @@ from django.urls import path, include
 from django.conf.urls import handler400, handler403, handler404, handler500
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('anirbanbhattacharyaAdmin', admin.site.urls),
     path('', include("AnirbanBhattacharyaWebsite.urls"))
 ]
 
 handler404 = "AnirbanBhattacharyaWebsite.views.ErrorPage"
 handler500 = "AnirbanBhattacharyaWebsite.views.ErrorOccured"
+admin.site.site_title = "Anirban Bhattacharya"
+admin.site.site_header = "Anirban Bhattacharya"
+admin.site.index_title = "Welcome to Anirban Bhattacharya's Admin panel..."
