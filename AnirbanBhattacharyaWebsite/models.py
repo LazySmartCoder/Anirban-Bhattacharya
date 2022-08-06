@@ -33,6 +33,7 @@ class Blog(models.Model):
 
 class IP(models.Model):
     IP = models.CharField(max_length=50, default="")
+    BlogSlug = models.CharField(max_length=100, default="")
     
     def __str__(self) -> str:
         return self.IP

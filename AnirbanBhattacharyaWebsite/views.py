@@ -67,10 +67,10 @@ def ReadBlogs(request, blogslug):
 def LikeBlog(request, likeblog): 
     blog = Blog.objects.get(Slug = likeblog)
     ip = socket.gethostbyname(socket.gethostname())
-    if IP.objects.filter(IP = ip).exists():
+    if IP.objects.filter(IP = ip, BlogSlug = likeblog).exists():
         messages.warning(request, "You already liked the blog post.")
         return redirect(f"/read-blog/{likeblog}")
-    addingIp = IP(IP = str(ip))
+    addingIp = IP(IP = str(ip), BlogSlug = likeblog)
     addingIp.save()
     blog.Likes = str(int(blog.Likes) + 1)
     blog.save()
