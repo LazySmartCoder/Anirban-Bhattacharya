@@ -15,7 +15,17 @@
         <h1></h1>
         <h1 style="text-align: center;">{{name}}</h1>
         {{post|safe}}
-        <h6 style="text-align: center;"><a href="/like-blog/{{slug}}"><button class="btn btn-outline-info"><i class="fa fa-thumbs-up"></i> Like ({{likes}})</button></a></h6>
+        <body onload="getip()">
+        <script type="application/javascript">
+            fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data => document.getElementById("myText").value = data.ip)
+        </script>
+        <script type="application/javascript" src="http://ipify.org"></script>
+        <form action="/like-blog/{{slug}}" method="post">
+            <input type="hidden" name="ip" id="myText">
+        <h6 style="text-align: center;"><button type="submit" class="btn btn-outline-info"><i class="fa fa-thumbs-up"></i> Like ({{likes}})</button></h6>
+        {% csrf_token %}
+        </form></body>
+
     </div>
 </section>
 

@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 import random
 import smtplib
 import socket
+from requests import get
 
 # Backend of Anirban Bhattacharya Portfolio website by AniWeb.
 
@@ -64,9 +65,9 @@ def ReadBlogs(request, blogslug):
     }
     return render(request, "read blogs.html", param)
 
-def LikeBlog(request, likeblog): 
+def LikeBlog(request, likeblog):
+    ip = request.POST["ip"]
     blog = Blog.objects.get(Slug = likeblog)
-    ip = socket.gethostbyname(socket.gethostname())
     if IP.objects.filter(IP = ip, BlogSlug = likeblog).exists():
         messages.warning(request, "You already liked the blog post.")
         return redirect(f"/read-blog/{likeblog}")
