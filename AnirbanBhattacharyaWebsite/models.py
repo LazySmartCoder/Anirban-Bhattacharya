@@ -44,6 +44,7 @@ class Hired(models.Model):
     Phone = models.CharField(max_length=15, default="")
     Service = models.CharField(max_length=50,  default="")
     Subject = models.CharField(max_length=500, default="")
+    Budget = models.IntegerField(max_length=50, default="")
     Message = models.TextField(max_length=50000, default="")
 
     def __str__(self) -> str:

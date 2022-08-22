@@ -88,9 +88,11 @@ def HireMe(request):
         Phone = request.POST["phone"]
         Service = request.POST["service"]
         Subject = request.POST["subject"]
+        Budget = request.POST["budget"]
         Message = request.POST["message"]
-        creatingHired = Hired(Name = Name, Email = Email, Phone = Phone, Service = Service, Subject = Subject, Message = Message)
+        creatingHired = Hired(Name = Name, Email = Email, Phone = Phone, Service = Service, Subject = Subject, Budget = Budget, Message = Message)
         creatingHired.save()
+        messages.success(request, "Thank you for sending me a hiring request. I will contact you via your email or your contact number.")
         return redirect("Hire")
     return redirect("ErrorPage")
 
