@@ -78,3 +78,19 @@ def LikeBlog(request, likeblog):
     messages.success(request, "Thank you for liking this blog post.")
     return redirect(f"/read-blog/{likeblog}")
 
+def Hire(request):
+    return render(request, "hire.html")
+
+def HireMe(request):
+    if request.method == "POST":
+        Name = request.POST["name"]
+        Email = request.POST["email"]
+        Phone = request.POST["phone"]
+        Service = request.POST["service"]
+        Subject = request.POST["subject"]
+        Message = request.POST["message"]
+        creatingHired = Hired(Name = Name, Email = Email, Phone = Phone, Service = Service, Subject = Subject, Message = Message)
+        creatingHired.save()
+        return redirect("Hire")
+    return redirect("ErrorPage")
+
