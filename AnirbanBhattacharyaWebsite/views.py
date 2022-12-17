@@ -62,6 +62,7 @@ def ReadBlogs(request, blogslug):
         "cat" : blogs.Category,
         "likes" : blogs.Likes,
         "slug" : blogs.Slug,
+        "blogs" : Blog.objects.all()
     }
     return render(request, "read blogs.html", param)
 

@@ -38,16 +38,4 @@ class IP(models.Model):
     def __str__(self) -> str:
         return self.IP
 
-class Hired(models.Model):
-    Name = models.CharField(max_length = 50, default = "")
-    Email = models.EmailField(max_length=100, default="")
-    Phone = models.CharField(max_length=15, default="")
-    Service = models.CharField(max_length=50,  default="")
-    Subject = models.CharField(max_length=500, default="")
-    Budget = models.IntegerField(default="")
-    Message = models.TextField(max_length=50000, default="")
-
-    def __str__(self) -> str:
-        return self.Service
-
 
