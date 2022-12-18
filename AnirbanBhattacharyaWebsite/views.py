@@ -43,7 +43,6 @@ def ContactMe(request):
         message = request.POST["message"]
         creatingMessage = Contact(Name = name, Email = email, Subject = subject, Message = message)
         creatingMessage.save()
-        messages.success(request, "Thank you for contacting me. I will surely try to reply to you as soon as possible.")
         return redirect("HomePage")
     return redirect("ErrorPage")
 
@@ -62,7 +61,7 @@ def ReadBlogs(request, blogslug):
         "cat" : blogs.Category,
         "likes" : blogs.Likes,
         "slug" : blogs.Slug,
-        "blogs" : Blog.objects.all()
+        "blogs" : Blog.objects.all().exclude(Slug = blogs.Slug)
     }
     return render(request, "read blogs.html", param)
 
