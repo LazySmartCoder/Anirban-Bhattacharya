@@ -38,4 +38,8 @@ class IP(models.Model):
     def __str__(self) -> str:
         return self.IP
 
+class NewsMail(models.Model):
+    Email = models.CharField(max_length=60, default="", blank=False)
 
+    def __str__(self) -> str:
+        return self.Email

@@ -25,7 +25,7 @@
         </script>
         <script type="application/javascript" src="http://ipify.org"></script>
         <form action="/like-blog/{{slug}}" method="post">
-            <input type="hidden" name="ip" id="myText">
+            <input type="hidden" name="ip" id="ip">
         <h6 style="text-align: center;"><button type="submit" class="btn btn-outline-info"><i class="fa fa-thumbs-up"></i> Like ({{likes}})</button></h6>
         {% csrf_token %}
         </form></body>
