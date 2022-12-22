@@ -10,5 +10,7 @@ urlpatterns = [
     path("read-blog/<str:blogslug>", ReadBlogs, name = "ReadBlogs"),
     path("like-blog/<str:likeblog>", LikeBlog, name = "LikeBlog"),
     path("newsletter", Newsletter, name = "Newsletter"),
+    path("search", SearchBlogs, name = "SearchBlogs"),
+    path("autosuggest", AutoSuggest, name = "AutoSuggest"),
 ]
 

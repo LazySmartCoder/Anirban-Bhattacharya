@@ -1,18 +1,38 @@
-{% extends 'base.html' %}
-{% block title %}
-Newsletter Subscription | Anirban Bhattacharya
-{% endblock %}
-{% block body %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription | Anirban Bhattacharya</title>
+    <link rel="icon" href="{% static 'Images/Cartoon Circle.png' %}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-<h1 style="text-align: center;"><img style="width: 100%; height: 500px;" src="{{image}}" alt=""></h1>
+  <!-- Vendor CSS Files -->
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{% static 'Styles/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'Styles/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'Styles/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'Styles/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'Styles/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'Styles/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'Styles/assets/css/style.css' %}" rel="stylesheet"></head>
+<body>
+    <h1 style="text-align: center;"><img style="width: 100%; height: 500px; max-width: 700px;" src="{{image}}" alt=""></h1>
 <h1 style="text-align: center;">{{statement}}</h1>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<center>
+    <a href="/"><button style="background: #0563bb;
+        border: 0;
+        padding: 10px 35px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;">Back Home</button></a>
+    </div>
+</center>
 
-{% endblock %}
+</body>
+</html>

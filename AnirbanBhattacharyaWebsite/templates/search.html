@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-Blogs | Anirban Bhattacharya
+Search | Anirban Bhattacharya
 {% endblock %}
 {% block body %}
 {% load static %}
@@ -10,7 +10,7 @@ Blogs | Anirban Bhattacharya
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <br>
   <h1 style="text-align: center;"><img style="width: 250px;" src="{% static 'Images/Cartoon Circle.png' %}" alt=""></h1>
-  <h2 style="text-align: center;">Anirban Bhattacharya Blogs</h2>
+  <h2 style="text-align: center;">{{searchcount}} Search results found for <strong>{{search_text}}</strong></h2>
   <br>
   <center>
     <div style="width: 100%; max-width: 250px;">
@@ -27,18 +27,19 @@ Blogs | Anirban Bhattacharya
     });
   } );
   </script>
+  
 <section class="cards-wrapper">
   
-  {%for blog in blogs|slice:"::-1"%}
+  {%for search in searchdata|slice:"::-1"%}
   <div class="card-grid-space">
-    <a class="card" href="/read-blog/{{blog.Slug}}" style="--bg-img: url('{{blog.Image}}')">
+    <a class="card" href="/read-blog/{{search.Slug}}" style="--bg-img: url('{{search.Image}}')">
       <div>
         <br>
-        <h1>{{blog.Name}}</h1>
-        <p>{{blog.Description}}</p>
-        <div class="date">{{blog.DateAdded}}</div>
+        <h1>{{search.Name}}</h1>
+        <p>{{search.Description}}</p>
+        <div class="date">{{search.DateAdded}}</div>
         <div class="tags">
-          <div class="tag">{{blog.Category}}</div>
+          <div class="tag">{{search.Category}}</div>
         </div>
       </div>
     </a>
