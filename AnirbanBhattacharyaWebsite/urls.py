@@ -12,5 +12,6 @@ urlpatterns = [
     path("newsletter", Newsletter, name = "Newsletter"),
     path("search", SearchBlogs, name = "SearchBlogs"),
     path("autosuggest", AutoSuggest, name = "AutoSuggest"),
+    path("unsubscribe/<str:email>", Unsubscribe, name = "Unsubscribe"),
 ]
 
