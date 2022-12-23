@@ -51,6 +51,7 @@ def ContactMe(request):
         message = request.POST["message"]
         creatingMessage = Contact(Name = name, Email = email, Subject = subject, Message = message)
         creatingMessage.save()
+        sendEmail("contact@anirbanbhattacharya.in", "contact.anirbanbhattacharya@gmail.com", "Someone contacted you!", f"Name: {name}, Email: {email}, Message: {message}")
         return redirect("HomePage")
     return redirect("ErrorPage")
 
@@ -112,8 +113,11 @@ def AutoSuggest(request):
     return JsonResponse(blist, safe=False)
 
 def Unsubscribe(request, email):
+    if NewsMail.objects.filter(Email = email).exists() == False:
+        messages.success(request, "You have already unsubscribed to my newsletters. If it was a mistake then subscribe to my newsletters again...")
+        return redirect("HomePage")
     deleting = NewsMail.objects.get(Email = email)
-    deleting.delete()
+    # deleting.delete()
     return render(request, "email removed.html")
 
     
