@@ -117,7 +117,7 @@ def Unsubscribe(request, email):
         messages.success(request, "You have already unsubscribed to my newsletters. If it was a mistake then subscribe to my newsletters again...")
         return redirect("HomePage")
     deleting = NewsMail.objects.get(Email = email)
-    # deleting.delete()
+    deleting.delete()
     return render(request, "email removed.html")
 
     
