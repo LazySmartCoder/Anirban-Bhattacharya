@@ -21,7 +21,7 @@
         <br>
         <body onload="getip()">
         <script type="application/javascript">
-            fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data => document.getElementById("myText").value = data.ip)
+            fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data => document.getElementById("ip").value = data.ip)
         </script>
         <script type="application/javascript" src="http://ipify.org"></script>
         <form action="/like-blog/{{slug}}" method="post">

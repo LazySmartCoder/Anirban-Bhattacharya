@@ -77,6 +77,7 @@ def ReadBlogs(request, blogslug):
 
 def LikeBlog(request, likeblog):
     ip = request.POST["ip"]
+    print(ip)
     blog = Blog.objects.get(Slug = likeblog)
     if IP.objects.filter(IP = ip, BlogSlug = likeblog).exists():
         messages.warning(request, "You already liked the blog post.")
