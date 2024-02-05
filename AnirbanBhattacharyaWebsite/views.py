@@ -34,7 +34,8 @@ def Blogs(request):
     return render(request, "blogs.html", {"blogs" : blogs})
 
 def Gallery(request):
-    return render(request, "gallery.html")
+    photo = Photo.objects.all()
+    return render(request, "gallery.html", {"photo" : photo})
 
 def ErrorPage(request, exception):
     # This is for handler 404

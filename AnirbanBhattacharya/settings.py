@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+g4uvgv1xl8+xt6u_-kx#-a4ept0kl-n&_w-cznfxzepba)bls'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["anirbanbhattacharya.in", "localhost"]
 
@@ -118,8 +118,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR / 'static')
+MEDIA_URL = '/RequiredImages/'
+MEDIA_ROOT = os.path.join(BASE_DIR / 'RequiredImages')
 
 CSRF_TRUSTED_ORIGINS = ["https://anirbanbhattacharya.in", "https://www.anirbanbhattacharya.in"]
 
