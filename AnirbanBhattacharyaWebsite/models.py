@@ -19,6 +19,7 @@ class Blog(models.Model):
     )
     Name = models.CharField(max_length=200, default="")
     Description = models.CharField(max_length=150, default="")
+    Keywords = models.CharField(max_length = 2000, default = "")
     DateAdded = models.CharField(max_length=20, default="")
     Image = models.CharField(max_length=300, default="")
     Slug = models.CharField(max_length=300, default="")
