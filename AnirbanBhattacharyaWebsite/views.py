@@ -21,17 +21,13 @@ def sendEmail(email, subject, message):
     msg.attach(MIMEText(html, 'html'))
     s = smtplib.SMTP('smtp.gmail.com', port=587)
     s.starttls()
-    s.login("contact.anirbanbhattacharya@gmail.com", "chgkkgpmzrjlppqg")
-    s.sendmail("no-reply@anirbanbhattacharya.in", email, msg.as_string())
+    s.login("officials.aniblogs@gmail.com", "sojctrgtydvydyuz")
+    s.sendmail("no-reply@aniblogs.anirbanbhattacharya.in", email, msg.as_string())
     s.quit()
     return None
 
 def index(request):
-    return render(request, "index.html", {"blogs" : Blog.objects.all()})
-
-def Blogs(request):
-    blogs = Blog.objects.all()
-    return render(request, "blogs.html", {"blogs" : blogs})
+    return render(request, "index.html", {"blogs" : FeaturedBlog.objects.all()})
 
 def Gallery(request):
     photo = Photo.objects.all()
@@ -57,40 +53,6 @@ def ContactMe(request):
         return redirect("HomePage")
     return redirect("ErrorPage")
 
-def ReadBlogs(request, blogslug):
-    blogs = Blog.objects.get(Slug = blogslug)
-    blogs.Views = str(int(blogs.Views) + 1)
-    blogs.save()
-    param = {
-        "name" : blogs.Name,
-        "author" : blogs.Author,
-        "date" : blogs.DateAdded,
-        "views" : blogs.Views,
-        "image" : blogs.Image,
-        "desc" : blogs.Description,
-        "post" : blogs.Post, 
-        "cat" : blogs.Category,
-        "likes" : blogs.Likes,
-        "slug" : blogs.Slug,
-        "blogs" : Blog.objects.all().exclude(Slug = blogs.Slug),
-        "keywords" : blogs.Keywords
-    }
-    return render(request, "read blogs.html", param)
-
-def LikeBlog(request, likeblog):
-    ip = request.POST["ip"]
-    print(ip)
-    blog = Blog.objects.get(Slug = likeblog)
-    if IP.objects.filter(IP = ip, BlogSlug = likeblog).exists():
-        messages.warning(request, "You already liked the blog post.")
-        return redirect(f"/read-blog/{likeblog}")
-    addingIp = IP(IP = str(ip), BlogSlug = likeblog)
-    addingIp.save()
-    blog.Likes = str(int(blog.Likes) + 1)
-    blog.save()
-    messages.success(request, "Thank you for liking this blog post.")
-    return redirect(f"/read-blog/{likeblog}")
-
 def Newsletter(request):
     if request.method == "POST":
         email = request.POST["email"]
@@ -103,18 +65,13 @@ def Newsletter(request):
             return render(request, "newsletter done.html")
     return redirect("ErrorPage")
 
-def SearchBlogs(request):
-    search_text = request.GET["search"]
-    searching = Blog.objects.filter(Name__icontains = search_text) or Blog.objects.filter(Description__icontains = search_text) or Blog.objects.filter(Category__icontains = search_text) or Blog.objects.filter(Post__icontains = search_text)
-    return render(request, "search.html", {"searchdata" : searching, "search_text" : search_text, "searchcount" : searching.count()})
-
-def AutoSuggest(request):
-    print(request.GET)
-    query = request.GET.get("term")
-    queryset = Blog.objects.filter(Name__icontains = query)
-    blist = []
-    blist += [x.Name for x in queryset]
-    return JsonResponse(blist, safe=False)
+# def AutoSuggest(request):
+#     print(request.GET)
+#     query = request.GET.get("term")
+#     queryset = Blog.objects.filter(Name__icontains = query)
+#     blist = []
+#     blist += [x.Name for x in queryset]
+#     return JsonResponse(blist, safe=False)
 
 def Unsubscribe(request, email):
     if NewsMail.objects.filter(Email = email).exists() == False:

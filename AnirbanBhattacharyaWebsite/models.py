@@ -10,12 +10,15 @@ class Contact(models.Model):
     def __str__(self):
         return self.Message
 
-class Blog(models.Model):
+class FeaturedBlog(models.Model):
     cat = (
-        ("Coding", "Coding"),
-        ("Python", "Python"),
-        ("Business", "Business"),
+        ("Top Trends", "Top Trends"),
         ("Stock Market", "Stock Market"),
+        ("Shark Tank India", "Shark Tank India"),
+        ("Technology", "Technology"),
+        ("Good Reads", "Good Reads"),
+        ("Python", "Python"),
+        ("Business News", "Business News"),
     )
     Name = models.CharField(max_length=200, default="")
     Description = models.CharField(max_length=150, default="")
@@ -31,13 +34,6 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.Name
-
-class IP(models.Model):
-    IP = models.CharField(max_length=50, default="")
-    BlogSlug = models.CharField(max_length=100, default="")
-    
-    def __str__(self):
-        return self.IP
 
 class NewsMail(models.Model):
     Email = models.CharField(max_length=60, default="", blank=False)
