@@ -21,8 +21,8 @@ def sendEmail(email, subject, message):
     msg.attach(MIMEText(html, 'html'))
     s = smtplib.SMTP('smtp.gmail.com', port=587)
     s.starttls()
-    s.login("officials.aniblogs@gmail.com", "sojctrgtydvydyuz")
-    s.sendmail("no-reply@aniblogs.anirbanbhattacharya.in", email, msg.as_string())
+    s.login("contact.anirbanbhattacharya@gmail.com", "vhhebpfnrusmlcwp")
+    s.sendmail("no-reply@anirbanbhattacharya.in", email, msg.as_string())
     s.quit()
     return None
 
