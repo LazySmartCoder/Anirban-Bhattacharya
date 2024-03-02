@@ -14,7 +14,7 @@ from email.utils import formataddr
 
 def sendEmail(email, subject, message):
     msg = MIMEMultipart()
-    msg['From'] = formataddr((str(Header('Anirban Bhattacharya')), "no-reply@anirbanbhattacharya.in"))
+    msg['From'] = formataddr((str(Header('AniBlogs')), "no-reply@anirbanbhattacharya.in"))
     msg['To'] = email
     msg["Subject"] = subject
     html = message
