@@ -19,11 +19,11 @@ Gallery | Anirban Bhattacharya
         {% for p in photo|slice:"::-1" %}
         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           <div class="portfolio-wrap">
-            <img src="http://localhost:8000/RequiredImages/{{p.Image}}" class="img-fluid">
+            <img src="/RequiredImages/{{p.Image}}" class="img-fluid">
             <div class="portfolio-info">
               <h4>{{p.Name}}</h4>
               <div class="portfolio-links">
-                <a href="http://localhost:8000/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{p.Name}}"><i class="bx bx-show"></i></a>
+                <a href="/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{p.Name}}"><i class="bx bx-show"></i></a>
               </div>
             </div>
           </div>
