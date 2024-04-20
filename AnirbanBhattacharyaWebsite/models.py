@@ -13,6 +13,7 @@ class Contact(models.Model):
 class FeaturedBlog(models.Model):
     cat = (
         ("Top Trends", "Top Trends"),
+        ("Failure Chronicles", "Failure Chronicles"),
         ("Entertainment", "Entertainment"),
         ("Shark Tank India", "Shark Tank India"),
         ("Technology", "Technology"),
