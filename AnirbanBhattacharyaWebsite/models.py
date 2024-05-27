@@ -36,15 +36,13 @@ class FeaturedBlog(models.Model):
     def __str__(self):
         return self.Name
 
-class NewsMail(models.Model):
-    Email = models.CharField(max_length=60, default="", blank=False)
-
-    def __str__(self):
-        return self.Email
-
 class Photo(models.Model):
     Name = models.CharField(max_length = 100, default = "")
     Image = models.ImageField(upload_to="PersonalPhotos")
 
     def __str__(self):
         return self.Name
+
+class GalVerifi(models.Model):
+    OTP = models.CharField(max_length = 10)
+
