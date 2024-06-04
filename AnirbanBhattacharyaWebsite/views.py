@@ -102,6 +102,6 @@ def GalVa(request):
     au = request.POST["au"]
     createOtp = GalVerifi(OTP = galotp())
     createOtp.save()
-    sendEmail("contact@anirbanbhattacharya.in", "Gallery OTP", f"Hey, someone has requested access to your website gallery. Email ID of anonymous - {email}, Name - {name}, Description - {au}, Access Link - https://anirbanbhattacharya.in/gallery/{GalVerifi.objects.first().OTP}")
+    sendEmail("contact@anirbanbhattacharya.in", "Gallery OTP", f"Hey, someone has requested access to your website gallery. Email ID of anonymous - {email}, Name - {name}, Description - {au}, Access Link - https://anirbanbhattacharya.in/gallery/{GalVerifi.objects.last().OTP}")
     messages.success(request, "Gallery Access Requested!")
     return redirect("/")
