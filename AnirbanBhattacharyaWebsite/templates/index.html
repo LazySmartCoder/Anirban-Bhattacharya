@@ -617,4 +617,29 @@ document.getElementById('done').style.display = "block";
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Join my newsletters on WhatsApp!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <center>
+            <img style="max-width: 400px;" src="{% static 'Images\Channel.png' %}" alt="">
+          </center>
+        </div>
+        <div class="modal-footer">
+          <a href="https://whatsapp.com/channel/0029VahuoYADuMRmcxBZcv0M"><button class="btn btn-outline-success">Follow Channel!</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  <button class="btn btn-primary" id="bbutton" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="display: none;">Open first modal</button>
+  <script>
+
+    setTimeout("document.getElementById('bbutton').click()", 9000);
+        </script>
   {% endblock %}
