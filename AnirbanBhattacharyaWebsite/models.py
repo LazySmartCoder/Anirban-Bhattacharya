@@ -38,7 +38,8 @@ class FeaturedBlog(models.Model):
 
 class Photo(models.Model):
     Name = models.CharField(max_length = 100, default = "")
-    Image = models.ImageField(upload_to="PersonalPhotos")
+    Image = models.FileField(upload_to="PersonalPhotos")
+    Type = models.CharField(max_length = 20, default="p")
 
     def __str__(self):
         return self.Name

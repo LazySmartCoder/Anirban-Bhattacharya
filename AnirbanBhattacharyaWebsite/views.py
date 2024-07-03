@@ -68,12 +68,15 @@ def ContactMe(request):
 def GalVeri(request):
     return render(request, "galveri.html")
 
+def Gal(request):
+    return redirect("GalVeri")
+
 def GalVa(request):
     name = request.POST["name"]
     email = request.POST["email"]
     au = request.POST["au"]
     createOtp = GalVerifi(OTP = galotp())
     createOtp.save()
-    sendEmail("contact@anirbanbhattacharya.in", "Gallery OTP", f"Hey, someone has requested access to your website gallery. Email ID of anonymous - {email}, Name - {name}, Description - {au}, Access Link - https://anirbanbhattacharya.in/gallery/{GalVerifi.objects.last().OTP}")
+    sendEmail("contact@anirbanbhattacharya.in", "Gallery OTP", f"Hey, someone has requested access to your website gallery. Email ID of anonymous - {email}, Name - {name}, Description - {au}, Access Link - https://anirbanbhattacharya.in/gallery-view/{GalVerifi.objects.last().OTP}")
     messages.success(request, "Gallery Access Requested!")
     return redirect("/")
