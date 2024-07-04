@@ -38,13 +38,13 @@ def index(request):
 
 def Gallery(request, galug):
     photo = Photo.objects.all()
-    # if GalVerifi.objects.filter(OTP = galug).exists():
-    #     otp = GalVerifi.objects.get(OTP = galug)
-    #     otp.delete()
-    #     return render(request, "gallery.html", {"photo" : photo})
-    # else:
-    #     return redirect("GalVeri")
-    return render(request, "gallery.html", {"photo" : photo})
+    if GalVerifi.objects.filter(OTP = galug).exists():
+        otp = GalVerifi.objects.get(OTP = galug)
+        if otp.Perma == False:
+            otp.delete()
+        return render(request, "gallery.html", {"photo" : photo})
+    else:
+        return redirect("GalVeri")
 
 def ErrorPage(request, exception):
     # This is for handler 404

@@ -46,4 +46,5 @@ class Photo(models.Model):
 
 class GalVerifi(models.Model):
     OTP = models.CharField(max_length = 10)
+    Perma = models.BooleanField(default=False)
 
