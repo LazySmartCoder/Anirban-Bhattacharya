@@ -21,15 +21,21 @@ Gallery | Anirban Bhattacharya
           <div class="portfolio-wrap">
             {% if p.Type == "p" %}
             <img src="/RequiredImages/{{p.Image}}" class="img-fluid" onContextMenu="return false;" alt="{{p.Name}}">
-            {% elif p.Type == "v" %}
-            <video src="/RequiredImages/{{p.Image}}" class="img-fluid" controls autoplay nodownload onContextMenu="return false;"></video>
-            {% endif %}
             <div class="portfolio-info">
               <h4>{{p.Name}}</h4>
               <div class="portfolio-links">
-                <a href="/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{p.Name}}"><i class="bx bx-show"></i></a>
+                <a href="/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-show"></i></a>
               </div>
             </div>
+            {% elif p.Type == "v" %}
+            <video src="/RequiredImages/{{p.Image}}" class="img-fluid" nocontrols nodownload onContextMenu="return false;"></video>
+            <div class="portfolio-info">
+              <h4>{{p.Name}}</h4>
+              <div class="portfolio-links">
+                <a href="/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-video"></i></a>
+              </div>
+            </div>
+            {% endif %}
           </div>
         </div>
         {% endfor %}
