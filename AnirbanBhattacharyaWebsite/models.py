@@ -20,6 +20,7 @@ class FeaturedBlog(models.Model):
         ("Good Reads", "Good Reads"),
         ("Python", "Python"),
         ("Business News", "Business News"),
+        ("Entrepreneurship", "Entrepreneurship")
     )
     Name = models.CharField(max_length=200, default="")
     Description = models.CharField(max_length=150, default="")
