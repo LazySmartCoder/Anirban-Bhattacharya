@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Gallery | Anirban Bhattacharya
+{% endblock %}
+{% block body %}
+{% load static %}
+
+  <section id="gallery" class="portfolio section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>MY GALLERY</h2>
+        <p>My sweet memories are here...</p>
+      </div>
+      <br>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+        {% for p in photo|slice:"::-1" %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            {% if p.Type == "p" %}
+            <img src="/RequiredImages/{{p.Image}}" class="img-fluid" onContextMenu="return false;" alt="{{p.Name}}">
+            <div class="portfolio-info">
+              <h4>{{p.Name}}</h4>
+              <div class="portfolio-links">
+                <a href="/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-show"></i></a>
+              </div>
+            </div>
+            {% elif p.Type == "v" %}
+            <video src="/RequiredImages/{{p.Image}}" class="img-fluid" nocontrols nodownload onContextMenu="return false;"></video>
+            <div class="portfolio-info">
+              <h4>{{p.Name}}</h4>
+              <div class="portfolio-links">
+                <a href="/RequiredImages/{{p.Image}}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-video"></i></a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+
+</div>
+
+    </div>
+  </section>
+
+
+{% endblock %}
